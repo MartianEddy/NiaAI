@@ -1,0 +1,64 @@
+<div class="signup-component row">
+    <div class="col-2"></div>
+    <div class="signup-card col-8">
+        <div class="row" style="height: 100%">
+            <div class="left-column col-6">
+                <span>InfinityChat</span>
+                <div class="img"></div>
+            </div>
+
+            <div class="right-column col-6">
+                <div class="description">
+                    <p class="description">JOIN US</p>
+                    <h3 class="title">Sign Up</h3>
+                    <p class="description">Existing user? <a class="link" routerLink="/login">Log In</a></p>
+                </div>
+                <form [formGroup]="signupForm" (ngSubmit)="signup()">
+                    <div class="form-group row g-0">
+                        <label class="text-with-inline-placeholder col-12">
+                            <input type="text" placeholder=" " [formControlName]="'email'"
+                                   class="form-control text-edit">
+                            <span class="text-hint">Email</span>
+                        </label>
+                        <span *ngIf="!signupForm.get('email')?.valid && signupForm.get('email')?.touched"
+                              class="error">Please enter a valid email address</span>
+                    </div>
+
+                    <div class="form-group row g-0">
+                        <label class="text-with-inline-placeholder col-12">
+                            <input type="text" placeholder=" " [formControlName]="'username'"
+                                   class="form-control text-edit">
+                            <span class="text-hint">Username</span>
+                        </label>
+                        <span *ngIf="!signupForm.get('username')?.valid && signupForm.get('username')?.touched"
+                              class="error">Please enter a valid username</span>
+                    </div>
+
+                    <div class="form-group row g-0">
+                        <div>
+                            <label class="text-with-inline-placeholder col-12">
+                                <input type="password" placeholder=" " [formControlName]="'password'"
+                                       class="form-control text-edit" id="password"
+                                       name="password">
+                                <span class="text-hint">Password</span>
+                            </label>
+                            <span *ngIf="!signupForm.get('password')?.valid && signupForm.get('password')?.touched"
+                                  class="error">Please enter a password</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>
+                            <b>Profile picture:</b> <img [src]="image" class="avatar" *ngIf="image"><input type="file" (change)="selectImage($event)">
+                        </span>
+                        <br/>
+                        <span *ngIf="invalidImage" class="help-block">File is not a (supported) image</span>
+                    </div>
+
+                    <button type="submit" class="button" [disabled]="!signupForm.valid">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-2"></div>
+</div>

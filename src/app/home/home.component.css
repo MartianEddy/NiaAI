@@ -1,0 +1,15 @@
+.home-component {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+.chat-list {
+
+}
+
+.chat {
+    background: rgb(16,28,73);
+    background: linear-gradient(50deg, rgba(16,28,73,1) 9%, rgba(108,20,121,1) 60%, rgba(34,117,139,1) 85%);
+}

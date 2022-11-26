@@ -1,0 +1,46 @@
+<div class="login-component row">
+    <div class="col-2"></div>
+    <div class="login-card col-8">
+        <div class="row" style="height: 100%">
+            <div class="left-column col-6">
+                <span>InfinityChat</span>
+                <div class="img"></div>
+            </div>
+
+            <div class="right-column col-6">
+                <div class="description">
+                    <p class="description">WELCOME BACK</p>
+                    <h3 class="title">Login</h3>
+                    <p class="description">New user? <a class="link" routerLink="/signup">Sign Up</a></p>
+                </div>
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                    <div class="form-group row g-0">
+                            <label class="text-with-inline-placeholder col-12">
+                                <input type="text" placeholder=" " [formControlName]="'username'"
+                                       class="form-control text-edit">
+                                <span class="text-hint">Username</span>
+                            </label>
+                            <span *ngIf="!loginForm.get('username')?.valid && loginForm.get('username')?.touched"
+                                  class="error">Please enter your username</span>
+                    </div>
+
+                    <div class="form-group row g-0">
+                        <div>
+                            <label class="text-with-inline-placeholder col-12">
+                                <input type="password" placeholder=" " [formControlName]="'password'"
+                                       class="form-control text-edit" id="password"
+                                       name="password">
+                                <span class="text-hint">Password</span>
+                            </label>
+                            <span *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched"
+                                  class="error">Please enter your password</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="button" [disabled]="!loginForm.valid">Log In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-2"></div>
+</div>
