@@ -1,4 +1,12 @@
 <div class="home-component row">
-    <div class="chat-list col-4"></div>
-    <div class="chat col-8"></div>
+    <div class="sidebar col-4 g-0">
+        <app-user-header class="header-area"></app-user-header>
+        <app-user-search class="search-area"></app-user-search>
+        <div id="chat-list-area" class="chat-list-area">
+            <app-chat-list></app-chat-list>
+        </div>
+    </div>
+    <div class="chat-area col-8 g-0">
+        <app-messages-in-chat></app-messages-in-chat>
+    </div>
 </div>

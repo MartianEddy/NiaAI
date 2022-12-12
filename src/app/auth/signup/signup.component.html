@@ -1,6 +1,5 @@
 <div class="signup-component row">
-    <div class="col-2"></div>
-    <div class="signup-card col-8">
+    <div class="signup-card col-sm-11 col-md-9 col-lg-7 col-xl-5">
         <div class="row" style="height: 100%">
             <div class="left-column col-6">
                 <span>InfinityChat</span>
@@ -14,16 +13,6 @@
                     <p class="description">Existing user? <a class="link" routerLink="/login">Log In</a></p>
                 </div>
                 <form [formGroup]="signupForm" (ngSubmit)="signup()">
-                    <div class="form-group row g-0">
-                        <label class="text-with-inline-placeholder col-12">
-                            <input type="text" placeholder=" " [formControlName]="'email'"
-                                   class="form-control text-edit">
-                            <span class="text-hint">Email</span>
-                        </label>
-                        <span *ngIf="!signupForm.get('email')?.valid && signupForm.get('email')?.touched"
-                              class="error">Please enter a valid email address</span>
-                    </div>
-
                     <div class="form-group row g-0">
                         <label class="text-with-inline-placeholder col-12">
                             <input type="text" placeholder=" " [formControlName]="'username'"
@@ -49,10 +38,8 @@
 
                     <div class="form-group">
                         <span>
-                            <b>Profile picture:</b> <img [src]="image" class="avatar" *ngIf="image"><input type="file" (change)="selectImage($event)">
+                            <b>Avatar:</b> <img [src]="avatar" class="avatar"><button type="button" class="refreshBtn" (click)="generateAvatar()"><fa-icon [icon]="refreshIcon" ></fa-icon></button>
                         </span>
-                        <br/>
-                        <span *ngIf="invalidImage" class="help-block">File is not a (supported) image</span>
                     </div>
 
                     <button type="submit" class="button" [disabled]="!signupForm.valid">Sign Up</button>
@@ -60,5 +47,4 @@
             </div>
         </div>
     </div>
-    <div class="col-2"></div>
 </div>

@@ -1,12 +1,12 @@
 /* Colors */
 :root{
-    --primary: #5f34a9;
-    --accent: #ffbf00;
+    --primary: #101C49;
+    --accent: #ff00aa;
     --disabled: #333;
-    --background: #0a0a0a;
+    --background: #111111;
     --colorOnBackground: #1a1a1a;
     --text: #fff;
-    --textDisabled: #595959;
+    --textAlt: #595959;
 }
 /**********/
 
@@ -37,7 +37,7 @@ html{
 
 .button:disabled {
     background-color: var(--disabled);
-    color: var(--textDisabled);
+    color: var(--textAlt);
     box-shadow: none;
 }
 
@@ -66,6 +66,18 @@ html{
     padding: 10px;
 }
 
+form-control {
+    background-color: var(--colorOnBackground);
+    color: var(--text);
+    border: none;
+    border-radius: 6px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 24px 8px 24px;
+    text-decoration: none;
+}
+
 .text-hint {
     color: #000;
     padding: 10px;
@@ -86,3 +98,12 @@ html{
 
 /* End of placeholder */
 
+*::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, 0);
+    width: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--textAlt);
+    border-radius: 2px;
+}

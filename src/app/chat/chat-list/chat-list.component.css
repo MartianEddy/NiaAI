@@ -1,0 +1,56 @@
+.chat-list-component, .chat-list-component-selected {
+    background-color: var(--colorOnBackground);
+    margin: 2px 0;
+    padding: 8px 16px;
+    height: 64px;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    cursor: pointer;
+}
+
+.chat-list-component-selected {
+    background-color: var(--primary);
+}
+
+.avatar {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    flex-grow: 0;   /* fill no more than the size of the element */
+}
+
+.text-wrapper{
+    display: inline-block;
+    margin-left: 8px;
+    vertical-align: middle;
+    flex-grow: 1;   /* fill all available space */
+}
+
+.top-row {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.chat-name {
+    margin: 0px;
+    font-size: 16px;
+    color: var(--text);
+    flex-grow: 1;
+}
+
+.last-message-time {
+    margin: 0px;
+    font-size: 12px;
+    color: var(--textAlt);
+    flex-grow: 0;
+}
+
+.last-message {
+    margin: 0px;
+    font-size: 12px;
+    color: var(--textAlt);
+    overflow: hidden;
+}

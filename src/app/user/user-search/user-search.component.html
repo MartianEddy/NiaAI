@@ -1,0 +1,11 @@
+<div class="user-search-component row g-0">
+    <label class="text-with-inline-placeholder">
+        <input type="text" id="search" placeholder=" " class="form-control text-edit"
+               (keyup)="filterUsernames()">
+        <span class="text-hint">> Search a user to message:</span>
+    </label>
+
+    <div *ngIf="searchField.value">
+        <p *ngFor="let username of filteredUsernames$" (click)="startChat(username)">{{username}}</p>
+    </div>
+</div>

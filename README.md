@@ -1,27 +1,31 @@
 # InfinityChat
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.5.
+A realtime chat application built in Angular
 
-## Development server
+> Angular Typescript bootstrap material responsive chat message websocket
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Here is a [demo of the app](), and its [backend](https://github.com/badass-techie/InfinityChat-API).
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Create a user account
+- Activate your account via email
+- Login with your credentials
+- Authorize with access and refresh tokens
+- Message other users
+- Receive messages in realtime via websockets
 
-## Build
+## Screenshots
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Signup
 
-## Running unit tests
+![Signup](screenshots/signup.jpg)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Login
 
-## Running end-to-end tests
+![Login](screenshots/login.jpg)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Home
 
-## Further help
+![Home](screenshots/home.jpg)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

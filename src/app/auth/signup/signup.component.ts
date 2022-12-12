@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../auth.service";
 import {Router} from "@angular/router";
+import {SignupRequest} from "../models/signup.request";
+import {ToastrService} from "ngx-toastr";
+import { createAvatar } from '@dicebear/avatars';
+import * as style from '@dicebear/adventurer';
+import {faRefresh} from "@fortawesome/free-solid-svg-icons";
+import * as svgToTinyDataUrI from "mini-svg-data-uri";
 
 @Component({
   selector: 'app-signup',
@@ -10,12 +16,13 @@ import {Router} from "@angular/router";
 })
 export class SignupComponent implements OnInit {
     signupForm: FormGroup;
-    image: string = '';
-    invalidImage = false;
+    avatar!: string;
+    avatarBgColors = ["#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#ff5722", "#795548", "#9e9e9e", "#607d8b"];
+    refreshIcon = faRefresh;
 
-    constructor(private authService: AuthService, private router: Router) {
+    constructor(private authService: AuthService, private router: Router, private toastr: ToastrService) {
+        this.generateAvatar();
         this.signupForm = new FormGroup({
-            email: new FormControl('', [Validators.required, Validators.email]),
             username: new FormControl('', Validators.required),
             password: new FormControl('', Validators.required)
         });
@@ -25,29 +32,30 @@ export class SignupComponent implements OnInit {
     }
 
     signup() {
+        let payload: SignupRequest = {
+            username: this.signupForm.get('username')?.value,
+            avatar: this.avatar,
+            password: this.signupForm.get('password')?.value,
+        }
 
+        this.authService.signup(payload).subscribe({
+            next: () => {
+                this.router.navigateByUrl('/login');
+                this.toastr.success('Signup Successful');
+            },
+            error: (error) => {
+                this.toastr.error(error.error, 'Signup Failed!', {timeOut: 5000});
+                console.log("Signup failed: " + JSON.stringify(error));
+            }
+        });
     }
 
-    selectImage(event: any) {
-        let mimeType = event.target.files[0].type;
-
-        if (mimeType.match(/image\/*/) == null) {
-            this.invalidImage = true;
-            return;
-        }
-
-        let reader = new FileReader();
-        reader.readAsDataURL(event.target.files[0]);
-
-        reader.onload = (_event) => {
-            this.invalidImage = false;
-            if (typeof reader.result === "string") {
-                this.image = reader.result;
-            }
-            else {
-                this.invalidImage = true;
-                return;
-            }
-        }
+    generateAvatar() {
+        let svg = createAvatar(style, {
+            seed: Math.random().toString(),
+            backgroundColor: this.avatarBgColors[Math.floor(Math.random() * this.avatarBgColors.length)],
+            flip: true
+        });
+        this.avatar = svgToTinyDataUrI(svg);
     }
 }

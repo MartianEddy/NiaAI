@@ -57,9 +57,16 @@
 
 .avatar {
     display: inline;
-    height: 80px;
+    height: 72px;
     margin-left: 8px;
-    margin-right: 8px;
     width: auto;
+    border-radius: 50%;
+}
+
+.refreshBtn {
+    display: inline;
+    height: 72px;
+    margin-left: 8px;
+    width: 36px;
     border-radius: 4px;
 }

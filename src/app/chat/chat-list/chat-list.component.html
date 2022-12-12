@@ -1,0 +1,13 @@
+<div class="chat-list-component" *ngFor="let chat of chatService.chats$" (click)="openChat(chat)" [ngClass]="{
+         'chat-list-component': chatService.openedChat === undefined || chatService.openedChat.chatId !== chat.chatId,
+         'chat-list-component-selected': chatService.openedChat !== undefined && chat.chatId === chatService.openedChat!.chatId
+     }">
+    <img [src]="chat.otherMemberAvatar" class="avatar" alt="avatar">
+    <div class="text-wrapper">
+        <div class="top-row">
+            <p class="chat-name">{{chat.otherMemberUsername}}</p>
+            <p class="last-message-time">{{chat.lastMessageTime}}</p>
+        </div>
+        <p class="last-message">{{chat.lastMessage}}</p>
+    </div>
+</div>

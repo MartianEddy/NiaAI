@@ -1,0 +1,61 @@
+.header-component {
+    background-color: var(--primary);
+    border-radius: 0 0 12px 12px;
+    padding: 16px;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.avatar {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    flex-grow: 0;   /* fill no more than the size of the element */
+}
+
+h1 {
+    margin: 0px;
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+p {
+    margin: 0px;
+    font-size: 11px;
+    font-weight: 200;
+    color: var(--text);
+}
+
+.text-wrapper{
+    display: inline-block;
+    margin-left: 8px;
+    vertical-align: middle;
+    flex-grow: 1;   /* fill all available space */
+}
+
+.logout-button, .delete-button {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column; /* all this just to align contents in the middle 😒 */
+
+    border-radius: 4px;
+    color: var(--text);
+    font-size: 18px;
+    flex-grow: 0;   /* fill no more than the size of the element */
+}
+
+.delete-button {
+    color: red;
+}
+
+.delete-button:hover {
+    cursor: pointer;
+}

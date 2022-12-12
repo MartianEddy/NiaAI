@@ -1,0 +1,16 @@
+.user-search-component {
+    width:100%;
+    padding: 8px 8px 8px 8px;
+}
+
+p{
+    margin: 2px 0;
+    padding: 4px 16px 4px 16px;
+    border-radius: 4px;
+    color: var(--text);
+    background-color: var(--colorOnBackground);
+}
+
+p:hover {
+    cursor: pointer;
+}

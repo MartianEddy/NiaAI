@@ -1,15 +1,30 @@
 .home-component {
     width: 100%;
     height: 100%;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 
-.chat-list {
-
+.sidebar {
+    display: flex;
+    flex-direction: column;
 }
 
-.chat {
+.header-area {
+    flex-grow: 0;
+}
+
+.search-area {
+    flex-grow: 0;
+}
+
+.chat-list-area {
+    flex-grow: 1;
+    height: 0;  /* in order to make the overflow scroll we have to set height explicitly */
+    overflow-y: auto;   /* scroll only when contents do not fit */
+}
+
+.chat-area {
     background: rgb(16,28,73);
     background: linear-gradient(50deg, rgba(16,28,73,1) 9%, rgba(108,20,121,1) 60%, rgba(34,117,139,1) 85%);
 }

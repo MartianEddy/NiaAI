@@ -1,0 +1,9 @@
+<div class="header-component">
+    <img [src]="user.avatar" class="avatar" alt="avatar">
+    <div class="text-wrapper">
+        <h1>{{user.username}}</h1>
+        <p>Joined {{user.created}}</p>
+    </div>
+    <a class="logout-button" routerLink="/logout"><fa-icon [icon]="logoutIcon" ></fa-icon></a>
+    <a class="delete-button" (click)="deleteAccount()"><fa-icon [icon]="deleteIcon" ></fa-icon></a>
+</div>
